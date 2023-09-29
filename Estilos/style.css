@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://e0.pxfuel.com/wallpapers/79/368/desktop-wallpaper-artstation-jojo-s-bizarre-adventure-stardust-crusaders-juanjo-rojo-delgado-jojo-bizarre-adventure-dio.jpg);
+    background-size: cover;
+}
+
+div{
+    position: relative;
+    width: 250px;
+    margin-left: 65px;
+    margin-top: 15px;
+    padding-bottom: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+div img:first-child{
+    width: 200px;
+    box-shadow: 10px 20px 10px -10px black;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+div img:last-child{
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: 0.3s ease;
+    transform: translateY(25%);
+    margin: auto;
+}
+
+div:hover{
+    transform: 
+    /* Va emparejado con la rotacion en cuanto a parametros 3D */
+    perspective(250px)
+    rotateX(10deg)
+    translateX(0)
+    /* Giro la imagen hacia atras */
+    translateY(-5%);
+}
+
+div::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 100%;
+    background-image: linear-gradient(
+        to bottom,
+        transparent 10%, rgba(0, 0, 0, 0.5), rgb(0, 0, 0) 95%
+    );
+    border-radius: 15px;
+    opacity: 0;
+    transition: all .3s ease;
+ 
+}
+
+div:hover::before{
+    opacity: 1;
+}
+
+div:hover img:last-child{
+    opacity: 1;
+}
